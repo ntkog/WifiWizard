@@ -371,6 +371,11 @@ public class WifiWizard extends CordovaPlugin {
 
         Integer numLevels = null;
 
+
+        //get current connected SSID for comparison to ScanResult
+        WifiInfo wi = wifi.getConnectionInfo();
+        String currentSSID = wi.getSSID();
+
         if (!data.isNull(0)) {
             try {
                 JSONObject options = data.getJSONObject(0);
@@ -415,6 +420,8 @@ public class WifiWizard extends CordovaPlugin {
                 lvl.put("level", level);
                 lvl.put("SSID", scan.SSID);
                 lvl.put("BSSID", scan.BSSID);
+                lvl.put("frequency", scan.frequency);
+                lvl.put("connectionType", scan.capabilities);
                 returnList.put(lvl);
             } catch (JSONException e) {
                 e.printStackTrace();
