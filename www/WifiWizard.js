@@ -73,7 +73,7 @@ var WifiWizard = {
         if (ssid === undefined || ssid === null) {
             ssid = "";
         }
-        ssid = ssid.trim()
+        ssid = typeof(ssid) === "object" ? ssid["SSID"].trim() : ssid.trim();
 
         if (ssid.charAt(0) != '"' ) {
             ssid = '"' + ssid;
