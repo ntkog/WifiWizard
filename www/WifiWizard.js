@@ -75,6 +75,7 @@ var WifiWizard = {
         }
         ssid = typeof(ssid) === "object" ? ssid["SSID"].trim() : ssid.trim();
 
+        /*
         if (ssid.charAt(0) != '"' ) {
             ssid = '"' + ssid;
         }
@@ -82,6 +83,7 @@ var WifiWizard = {
         if (ssid.charAt(ssid.length-1) != '"' ) {
             ssid = ssid + '"';
         }
+        */
 
         return ssid;
     },
